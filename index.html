@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple temperature converter for Celsius, Fahrenheit, and Kelvin.">
+  <title>Temperature Converter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Thermo home"><span class="brand-icon">°</span> thermo<span class="brand-dot">.</span></a>
+      <span class="topbar-note">A simple temperature tool</span>
+    </header>
+
+    <section class="converter-card" aria-labelledby="page-title">
+      <div class="eyebrow"><span class="eyebrow-line"></span> QUICK CONVERSION</div>
+      <h1 id="page-title">Temperature<br><span>Converter</span></h1>
+      <p class="intro">A little change in degrees can make a big difference. Convert between Celsius, Fahrenheit and Kelvin in seconds.</p>
+
+      <form id="converter-form" novalidate>
+        <div class="field-label-row">
+          <label for="temperature">Enter temperature</label>
+          <span class="field-hint">Numbers only</span>
+        </div>
+        <div class="input-wrap">
+          <input id="temperature" name="temperature" type="number" step="any" inputmode="decimal" placeholder="e.g. 25" autocomplete="off" aria-describedby="error-message">
+          <span class="input-symbol">°</span>
+        </div>
+        <p id="error-message" class="error-message" role="alert" aria-live="polite"></p>
+
+        <label class="field-label" for="input-unit">Convert from</label>
+        <div class="select-wrap">
+          <select id="input-unit" name="input-unit">
+            <option value="C">Celsius (°C)</option>
+            <option value="F">Fahrenheit (°F)</option>
+            <option value="K">Kelvin (K)</option>
+          </select>
+          <span class="select-chevron">⌄</span>
+        </div>
+
+        <button class="convert-button" type="submit">Convert temperature <span aria-hidden="true">→</span></button>
+      </form>
+
+      <section class="results" aria-labelledby="results-title" aria-live="polite">
+        <div class="results-heading">
+          <div>
+            <span class="results-kicker">YOUR RESULTS</span>
+            <h2 id="results-title">Converted values</h2>
+          </div>
+          <span class="results-icon" aria-hidden="true">↗</span>
+        </div>
+        <div class="result-grid">
+          <article class="result-tile" data-unit="C">
+            <span class="unit-name">CELSIUS</span>
+            <strong id="result-c">—</strong>
+            <span class="unit-symbol">°C</span>
+          </article>
+          <article class="result-tile" data-unit="F">
+            <span class="unit-name">FAHRENHEIT</span>
+            <strong id="result-f">—</strong>
+            <span class="unit-symbol">°F</span>
+          </article>
+          <article class="result-tile" data-unit="K">
+            <span class="unit-name">KELVIN</span>
+            <strong id="result-k">—</strong>
+            <span class="unit-symbol">K</span>
+          </article>
+        </div>
+        <p id="result-note" class="result-note">Enter a value above and select Convert to see all three units.</p>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <span>Made for curious minds.</span>
+      <span>°C &nbsp; °F &nbsp; K</span>
+    </footer>
+  </main>
+</body>
+</html>
